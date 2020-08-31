@@ -1,0 +1,51 @@
+// Block definition
+FUNCTION_BLOCK recomendador
+
+// Define input variables
+VAR_INPUT
+    edad = REAL;
+    familiaridad = REAL;
+    hInvertible = REAL;
+    hExigidas = REAL;
+    pAbandono = REAL;
+END_VAR
+
+// Define output variable
+VAR_OUTPUT
+    recomendacion = REAL;
+END_VAR
+
+// Fuzzify variable de entrada 'edad'
+FUZZIFY edad
+
+END_FUZZIFY
+
+// Fuzzify variable de entrada 'familiaridad'
+FUZZIFY familiaridad
+
+END_FUZZIFY
+
+// Fuzzify variable de entrada 'hInvertible'
+FUZZIFY hInvertible
+
+END_FUZZIFY
+
+// Fuzzify variable de entrada 'hExigidas'
+FUZZIFY hExigidas
+
+END_FUZZIFY
+
+// Fuzzify variable de entrada 'pAbandono'
+FUZZIFY pAbandono
+
+END_FUZZIFY
+
+
+// Defzzzify output variable 'recomendacion'
+DEFUZZIFY recomendacion
+
+    // Usar 'Centro de Gravedad' como metodo de defuzificacion
+    METHOD : COG;
+    // El valor por defecto es 0 si ninguna regla aplica
+    DEFAULT := 0;
+END_DEFUZZIFY
