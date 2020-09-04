@@ -158,7 +158,9 @@ public class GUI_ELearning extends javax.swing.JFrame {
         
         // Show
         JFuzzyChart.get().chart(fis.getFunctionBlock("recomendador"));
-        //respuesta.setText(String.valueOf(edad + familiaridad));
+        Double d = fis.getVariable("dificultad").getLatestDefuzzifiedValue();
+        Double e = fis.getVariable("tExigido").getLatestDefuzzifiedValue();
+        respuesta.setText("Para los valores de salida el grado de pertenencia es: " + d + "con" + e);
     }//GEN-LAST:event_jButton1MouseClicked
     
     /**
@@ -168,6 +170,7 @@ public class GUI_ELearning extends javax.swing.JFrame {
                 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new GUI_ELearning().setVisible(true);
             }

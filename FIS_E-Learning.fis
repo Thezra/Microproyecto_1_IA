@@ -16,10 +16,10 @@ Name='pAbandono'
 Range=[0 100]
 NumMFs=5
 MF1='Muy_bajo':'trapmf',[-45 -5 1.5 13.5]
-MF2='Bajo':'trapmf',[11.46 23.14 25.14 29.46]
-MF3='Medio':'trapmf',[27.16 44.48 47.98 58.66]
-MF4='Alto':'trapmf',[56.93 72.33 75.33 83.93]
-MF5='Muy_alto':'trapmf',[77.5 97.5 105 145]
+MF2='Bajo':'trapmf',[10 23.14 25.14 30]
+MF3='Medio':'trapmf',[25 32 46 60]
+MF4='Alto':'trapmf',[55 72 75 85]
+MF5='Muy_alto':'trapmf',[75 97.5 100 100]
 
 [Input2]
 Name='familiaridad'
@@ -35,8 +35,8 @@ MF5='Experto':'trapmf',[64 84.7 100 122]
 Name='edad'
 Range=[0 80]
 NumMFs=5
-MF1='Ninos':'trapmf',[-18 -2 2 14]
-MF2='Adolescentes':'trapmf',[12 14 18 18]
+MF1='Ninos':'trapmf',[-18 0 2 14]
+MF2='Adolescentes':'trapmf',[12 14 17.5 18]
 MF3='Jovenes':'trapmf',[16 21.4 23 25]
 MF4='Adultos':'trapmf',[21 30 55 65]
 MF5='Ancianos':'trapmf',[60 64 80 98]

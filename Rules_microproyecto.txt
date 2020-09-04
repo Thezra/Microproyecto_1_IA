@@ -1,19 +1,38 @@
-if pAbandono is (Muy_bajo) and familiaridad is (Nula) and edad is (Ninos) and hInvertible is (Muy pocas) then dRecomendacion (Facil) and tExigido is (Poco) 
-if pAbandono is (Bajo) and familiaridad is (Poca) and edad is (Adolescentes) and hInvertible is (Medias) then dRecomendacion (Medio) and tExigido is (Poco)
-if pAbandono is (Alto) and familiaridad is (Algo_familiarizado) and edad is (Jovenes) and hInvertible is (Medias) then dRecomendacion (Dificil) and tExigido is (Medio)
-if pAbandono is (Muy_alto) and familiaridad is (Muy_familiarizado) and hInvertible is (Muchas) then dRecomendacion (Muy_dificil) and tExigido is (Medio)
-if pAbandono is (Bajo) and familiaridad is (Experto) and edad is (Anciano) and hInvertible is (Muchas) then dRecomendacion (Muy_dificil) and tExigido is (Mucho)
-if pAbandono is (Bajo) and familiaridad is (Muy_familiarizado) and edad is (Adulto) and hInvertible is (Muchas) then dRecomendacion (Muy_dificil) and tExigido is (Mucho)
-if pAbandono is (Muy_alto) and hInvertible is (Pocas) then dRecomendacion (Medio) and tExigido is (Poco)
-if pAbandono is (Bajo) and familiaridad is (Experto) and hInvertible is (Muchas) then dRecomendacion (Muy_dificil) and tExigido is (Mucho)
-if pAbandono is (Medio) and familiaridad is (Algo_familiarizado) and hInvertible is (Medias) then dRecomendacion (Medio) and tExigido is (Medio)
-if familiaridad is (Poca) and hInvertible is (Muchas) then dRecomendacion (Medio) and tExigido is (Mucho)
-if pAbandono is (Medio) and familiaridad is (Nula) and edad is (Adulto) and hInvertible is (Muchas) then dRecomendacion (Medio) and tExigido is (Mucho)
-if familiaridad is (Experto) and edad is (Adulto) and hInvertible is (Muy_pocas) then dRecomendacion (Muy_dificil) and tExigido is (Muy_poco)
-if pAbandono is (Muy_alto) and hInvertible is (Muy_pocas) then dRecomendacion (Facil) and tExigido is (Muy_poco)
-if edad is (Ninos) then dRecomendacion (Facil)
-if hInvertible is (Muchas) then tExigido is (Mucho)
-if pAbandono is (Muy_bajo) and familiaridad is (Experto) then dRecomendacion (Muy_dificil) and tExigido is (Mucho)
-if familiaridad is (Muy_familiarizado) then dRecomendacion is (Dificil)
-if hInvertible is (Medias) then tExigido is (Medio)
-if hInvertible is (Pocas) then tExigido is (Poco)
+IF pAbandono IS Muy_bajo AND familiaridad IS Nula AND edad IS Ninos AND hInvertible IS Muy pocas 
+	THEN dRecomendacion IS Facil AND tExigido IS Poco 
+IF pAbandono IS Bajo AND familiaridad IS Poca AND edad IS Adolescentes AND hInvertible IS Medias 
+	THEN dRecomendacion IS Medio AND tExigido IS Poco
+IF pAbandono IS Alto AND familiaridad IS Algo_familiarizado AND edad IS Jovenes AND hInvertible IS Medias 
+	THEN dRecomendacion IS Dificil AND tExigido IS Medio
+IF pAbandono IS Muy_alto AND familiaridad IS Muy_familiarizado AND hInvertible IS Muchas 
+	THEN dRecomendacion IS Muy_dificil AND tExigido IS Medio
+IF pAbandono IS Bajo AND familiaridad IS Experto AND edad IS Anciano AND hInvertible IS Muchas 
+	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
+IF pAbandono IS Bajo AND familiaridad IS Muy_familiarizado AND edad IS Adulto AND hInvertible IS Muchas 
+	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
+IF pAbandono IS Muy_alto AND hInvertible IS Pocas 
+	THEN dRecomendacion IS Medio AND tExigido IS Poco
+IF pAbandono IS Bajo AND familiaridad IS Experto AND hInvertible IS Muchas 
+	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
+IF pAbandono IS Medio AND familiaridad IS Algo_familiarizado AND hInvertible IS Medias 
+	THEN dRecomendacion IS Medio AND tExigido IS Medio
+IF familiaridad IS Poca AND hInvertible IS Muchas 
+	THEN dRecomendacion IS Medio AND tExigido IS Mucho
+IF pAbandono IS Medio AND familiaridad IS Nula AND edad IS Adulto AND hInvertible IS Muchas 
+	THEN dRecomendacion IS Medio AND tExigido IS Mucho
+IF familiaridad IS Experto AND edad IS Adulto AND hInvertible IS Muy_pocas 
+	THEN dRecomendacion IS Muy_dificil AND tExigido IS Muy_poco
+IF pAbandono IS Muy_alto AND hInvertible IS Muy_pocas 
+	THEN dRecomendacion IS Facil AND tExigido IS Muy_poco
+IF edad IS Ninos 
+	THEN dRecomendacion IS Facil
+IF hInvertible IS Muchas 
+	THEN tExigido IS Mucho
+IF pAbandono IS Muy_bajo AND familiaridad IS Experto 
+	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
+IF familiaridad IS Muy_familiarizado 
+	THEN dRecomendacion IS Dificil
+IF hInvertible IS Medias 
+	THEN tExigido IS Medio
+IF hInvertible IS Pocas 
+	THEN tExigido IS Poco
