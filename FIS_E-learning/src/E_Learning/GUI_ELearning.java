@@ -93,8 +93,8 @@ public class GUI_ELearning extends javax.swing.JFrame {
 
         label_hInvertibles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_hInvertibles.setForeground(new java.awt.Color(255, 255, 255));
-        label_hInvertibles.setText("Horas por semana para invertirle al curso*");
-        label_hInvertibles.setToolTipText("Con cuantas horas (entre 0 y 24) a la semana cuenta para avanzar en el curso");
+        label_hInvertibles.setText("Horas por día para invertirle al curso*");
+        label_hInvertibles.setToolTipText("Con cuantas horas al día (entre 0 y 24)  cuenta para avanzar en el curso");
         jPanel1.add(label_hInvertibles);
         label_hInvertibles.setBounds(20, 230, 290, 20);
 

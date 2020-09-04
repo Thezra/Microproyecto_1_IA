@@ -151,8 +151,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Horas por semana para invertirle al curso*"/>
-            <Property name="toolTipText" type="java.lang.String" value="Con cuantas horas (entre 0 y 24) a la semana cuenta para avanzar en el curso"/>
+            <Property name="text" type="java.lang.String" value="Horas por d&#xed;a para invertirle al curso*"/>
+            <Property name="toolTipText" type="java.lang.String" value="Con cuantas horas al d&#xed;a (entre 0 y 24)  cuenta para avanzar en el curso"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
