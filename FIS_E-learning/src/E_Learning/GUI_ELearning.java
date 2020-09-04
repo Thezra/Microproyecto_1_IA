@@ -35,14 +35,12 @@ public class GUI_ELearning extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         cajapAbandono = new javax.swing.JTextField();
         cajaHInvertible = new javax.swing.JTextField();
-        cajahExigidas = new javax.swing.JTextField();
         cajaEdad = new javax.swing.JTextField();
         cajaFamiliaridad = new javax.swing.JTextField();
         respuesta = new javax.swing.JTextField();
@@ -68,32 +66,25 @@ public class GUI_ELearning extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Porcentaje de abandono del curso");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 120, 240, 20);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("Horas de trabajo por semana exigidas por el curso");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 160, 350, 20);
+        jLabel3.setBounds(20, 110, 240, 20);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Familiaridad con los temas que se tratan en el curso ");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 200, 350, 20);
+        jLabel5.setBounds(20, 140, 350, 20);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Edad");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 280, 40, 20);
+        jLabel6.setBounds(20, 220, 40, 20);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Horas por semana para invertirle al curso");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 240, 280, 20);
+        jLabel7.setBounds(20, 180, 280, 20);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Hacer mágia");
@@ -103,48 +94,44 @@ public class GUI_ELearning extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(180, 330, 120, 30);
+        jButton1.setBounds(180, 280, 120, 30);
 
         cajapAbandono.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajapAbandono);
-        cajapAbandono.setBounds(270, 120, 60, 26);
+        cajapAbandono.setBounds(270, 110, 60, 26);
 
         cajaHInvertible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajaHInvertible);
-        cajaHInvertible.setBounds(320, 240, 60, 26);
-
-        cajahExigidas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jPanel1.add(cajahExigidas);
-        cajahExigidas.setBounds(380, 160, 60, 26);
+        cajaHInvertible.setBounds(320, 180, 60, 26);
 
         cajaEdad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajaEdad);
-        cajaEdad.setBounds(70, 280, 60, 26);
+        cajaEdad.setBounds(70, 220, 60, 26);
 
         cajaFamiliaridad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajaFamiliaridad);
-        cajaFamiliaridad.setBounds(380, 200, 60, 26);
+        cajaFamiliaridad.setBounds(380, 140, 60, 26);
 
         respuesta.setEditable(false);
         jPanel1.add(respuesta);
-        respuesta.setBounds(20, 370, 430, 200);
+        respuesta.setBounds(20, 330, 430, 240);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        int edad, familiaridad, hInvertible, hExigidas, pAbandono;
+        int edad, familiaridad, hInvertible, pAbandono;
         
         //Load FIS file
         String fileName = "src/E_Learning/E_Learning.fcl";
@@ -158,14 +145,12 @@ public class GUI_ELearning extends javax.swing.JFrame {
         edad = Integer.parseInt(cajaEdad.getText());
         familiaridad = Integer.parseInt(cajaFamiliaridad.getText());
         hInvertible = Integer.parseInt(cajaHInvertible.getText());
-        hExigidas = Integer.parseInt(cajahExigidas.getText());
         pAbandono = Integer.parseInt(cajapAbandono.getText());
         
         // Set inputs
         fis.setVariable("edad", edad);
         fis.setVariable("familiaridad", familiaridad);
         fis.setVariable("hInvertible", hInvertible);
-        fis.setVariable("hExigidas", hExigidas);
         fis.setVariable("pAbandono", pAbandono);
         
         // Evaluate
@@ -193,13 +178,11 @@ public class GUI_ELearning extends javax.swing.JFrame {
     private javax.swing.JTextField cajaEdad;
     private javax.swing.JTextField cajaFamiliaridad;
     private javax.swing.JTextField cajaHInvertible;
-    private javax.swing.JTextField cajahExigidas;
     private javax.swing.JTextField cajapAbandono;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
