@@ -1,0 +1,71 @@
+[System]
+Name='FIS_E-Learning'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=2
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='pAbandono'
+Range=[0 100]
+NumMFs=5
+MF1='Muy_bajo':'trapmf',[-45 -5 1.5 13.5]
+MF2='Bajo':'trapmf',[11.46 23.14 25.14 29.46]
+MF3='Medio':'trapmf',[27.16 44.48 47.98 58.66]
+MF4='Alto':'trapmf',[56.93 72.33 75.33 83.93]
+MF5='Muy_alto':'trapmf',[77.5 97.5 105 145]
+
+[Input2]
+Name='familiaridad'
+Range=[0 100]
+NumMFs=5
+MF1='Nula':'trapmf',[-22.5 -2.5 2.5 5]
+MF2='Poca':'trapmf',[3 16.8639053254438 25 27]
+MF3='Algo_familiarizado':'trapmf',[25 39.1 46.0552268244576 52]
+MF4='Muy_familiarizado':'trapmf',[48 59.861932938856 65.8 77]
+MF5='Experto':'trapmf',[64 84.7 100 122]
+
+[Input3]
+Name='edad'
+Range=[0 80]
+NumMFs=5
+MF1='Ninos':'trapmf',[-18 -2 2 14]
+MF2='Adolescentes':'trapmf',[12 14 18 18]
+MF3='Jovenes':'trapmf',[16 21.4 23 25]
+MF4='Adultos':'trapmf',[21 30 55 65]
+MF5='Ancianos':'trapmf',[60 64 80 98]
+
+[Input4]
+Name='hInvertible'
+Range=[0 24]
+NumMFs=4
+MF1='Muy_pocas':'trapmf',[-7.2 -0.7999 0.7999 3]
+MF2='Pocas':'trapmf',[2 3 7.5 8]
+MF3='Medias':'trapmf',[7 11 14 15]
+MF4='Muchas':'trapmf',[13 22 24 24]
+
+[Output1]
+Name='dRecomendacion'
+Range=[0 20]
+NumMFs=4
+MF1='Facil':'trapmf',[-6 -0.667 3.05719921104537 5]
+MF2='Medio':'trapmf',[5 6 7.334 10]
+MF3='Dificil':'trapmf',[10 12.13 15 15]
+MF4='Muy_dificil':'trapmf',[15 20 20 26]
+
+[Output2]
+Name='tExigido'
+Range=[0 40]
+NumMFs=4
+MF1='Muy_poco':'trapmf',[-12 -1.333 1.333 6]
+MF2='Poco':'trapmf',[5 8.6 12.3 13]
+MF3='Medio':'trapmf',[12 17 24 27]
+MF4='Mucho':'trapmf',[25 34.8728813559322 41.3 52]
+
+[Rules]
