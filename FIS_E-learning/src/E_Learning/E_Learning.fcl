@@ -3,16 +3,16 @@ FUNCTION_BLOCK recomendador
 
 // Define input variables
 VAR_INPUT
-    edad = REAL;
-    familiaridad = REAL;
-    hInvertible = REAL;
-    pAbandono = REAL;
+    edad : REAL;
+    familiaridad : REAL;
+    hInvertible : REAL;
+    pAbandono : REAL;
 END_VAR
 
 // Define output variable
 VAR_OUTPUT
-    dificultad = REAL;
-    tExigido = REAL;
+    dRecomendacion : REAL;
+    tExigido : REAL;
 END_VAR
 
 // Fuzzify variable de entrada 'edad'
@@ -21,7 +21,7 @@ FUZZIFY edad
     TERM Adolescentes := (12,0) (14,1) (17.5,1) (18,0);
     TERM Jovenes := (16,0) (21.4,1) (23,1) (25,0);
     TERM Adultos := (21,0) (30,1) (55,1) (65,0);
-    TERM Ancianos := (60,0) (64,1) (80,1) (98,0);
+    TERM Ancianos := (60,0) (64,1) (80,1) (105,0);
 END_FUZZIFY
 
 // Fuzzify variable de entrada 'familiaridad'
@@ -45,14 +45,14 @@ END_FUZZIFY
 FUZZIFY pAbandono
     TERM Muy_bajo := (0,1) (1.5,1) (13.5,0);
     TERM Bajo := (10,0) (23.14,1) (25.14,1) (30,0);
-    TERM Medio := (0,25) (32,1) (46,1) (60,0);
-    TERM Alto := (0,55) (72,1) (75,1) (85,0);
+    TERM Medio := (25,0) (32,1) (46,1) (60,0);
+    TERM Alto := (55,0) (72,1) (75,1) (85,0);
     TERM Muy_alto := (75,0) (97.5,1) (100,1) (100,0); //No lo zhe rick
 END_FUZZIFY
 
 
-// Defzzzify output variable 'recomendacion'
-DEFUZZIFY dificultad
+// Defzzzify output variable 'dRecomendacion'
+DEFUZZIFY dRecomendacion
     TERM Facil := (0,1) (3.057,1) (5,0);
     TERM Medio := (5,0) (6,1) (7.334,1) (10,0);
     TERM Dificil := (10,0) (12.13,1) (15,1) (15,0); //No lo zhe rick
@@ -63,9 +63,10 @@ DEFUZZIFY dificultad
     DEFAULT := 0;
 END_DEFUZZIFY
 
+// Defzzzify output variable 'tExigido'
 DEFUZZIFY tExigido
-    TERM Muy_poco := (0,1) (1.333,1) (6,0);
-    TERM Poco := (5,0) (8.6,1) (13.3,1) (13,0);
+    TERM Muy_poco := (0,1) (4,1) (6,0);
+    TERM Poco := (5,0) (8.6,1) (12.3,1) (13,0);
     TERM Medio := (12,0) (17,1) (24,1) (27,0);
     TERM Mucho := (25,0) (34.87,1) (41.3,1) (52,1); //No lo zhe rick
     // Usar 'Centro de Gravedad' como metodo de defuzificacion
@@ -81,44 +82,46 @@ RULEBLOCK No1
     ACT : MIN;  // Use 'min' activation method
     ACCU : MAX; // Use 'max' accumulation method
 
-    RULE 1 : IF pAbandono IS Muy_bajo AND familiaridad IS Nula AND edad IS Ninos AND hInvertible IS Muy pocas 
-	THEN dRecomendacion IS Facil AND tExigido IS Poco 
+    RULE 1 : IF familiaridad IS Poca
+                THEN dRecomendacion IS Muy_dificil, tExigido IS Mucho;
     RULE 2 : IF pAbandono IS Bajo AND familiaridad IS Poca AND edad IS Adolescentes AND hInvertible IS Medias 
-	THEN dRecomendacion IS Medio AND tExigido IS Poco
+                THEN dRecomendacion IS Medio, tExigido IS Poco;
     RULE 3 : IF pAbandono IS Alto AND familiaridad IS Algo_familiarizado AND edad IS Jovenes AND hInvertible IS Medias 
-	THEN dRecomendacion IS Dificil AND tExigido IS Medio
+                THEN dRecomendacion IS Dificil, tExigido IS Medio;
     RULE 4 : IF pAbandono IS Muy_alto AND familiaridad IS Muy_familiarizado AND hInvertible IS Muchas 
-	THEN dRecomendacion IS Muy_dificil AND tExigido IS Medio
-    RULE 5 : IF pAbandono IS Bajo AND familiaridad IS Experto AND edad IS Anciano AND hInvertible IS Muchas 
-	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
-    RULE 6 : IF pAbandono IS Bajo AND familiaridad IS Muy_familiarizado AND edad IS Adulto AND hInvertible IS Muchas 
-	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
+                THEN dRecomendacion IS Muy_dificil, tExigido IS Medio;
+    RULE 5 : IF pAbandono IS Bajo AND familiaridad IS Experto AND edad IS Ancianos AND hInvertible IS Muchas 
+                THEN dRecomendacion IS Muy_dificil, tExigido IS Mucho;
+    RULE 6 : IF pAbandono IS Bajo AND familiaridad IS Muy_familiarizado AND edad IS Adultos AND hInvertible IS Muchas 
+                THEN dRecomendacion IS Muy_dificil, tExigido IS Mucho;
     RULE 7 : IF pAbandono IS Muy_alto AND hInvertible IS Pocas 
-	THEN dRecomendacion IS Medio AND tExigido IS Poco
+                THEN dRecomendacion IS Medio, tExigido IS Poco;
     RULE 8 : IF pAbandono IS Bajo AND familiaridad IS Experto AND hInvertible IS Muchas 
-	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
+                THEN dRecomendacion IS Muy_dificil, tExigido IS Mucho;
     RULE 9 : IF pAbandono IS Medio AND familiaridad IS Algo_familiarizado AND hInvertible IS Medias 
-	THEN dRecomendacion IS Medio AND tExigido IS Medio
+                THEN dRecomendacion IS Medio, tExigido IS Medio;
     RULE 10 : IF familiaridad IS Poca AND hInvertible IS Muchas 
-	THEN dRecomendacion IS Medio AND tExigido IS Mucho
-    RULE 11 : IF pAbandono IS Medio AND familiaridad IS Nula AND edad IS Adulto AND hInvertible IS Muchas 
-	THEN dRecomendacion IS Medio AND tExigido IS Mucho
-    RULE 12 : IF familiaridad IS Experto AND edad IS Adulto AND hInvertible IS Muy_pocas 
-	THEN dRecomendacion IS Muy_dificil AND tExigido IS Muy_poco
+                THEN dRecomendacion IS Medio, tExigido IS Mucho;
+    RULE 11 : IF pAbandono IS Medio AND familiaridad IS Nula AND edad IS Adultos AND hInvertible IS Muchas 
+                THEN dRecomendacion IS Medio, tExigido IS Mucho;
+    RULE 12 : IF familiaridad IS Experto AND edad IS Adultos AND hInvertible IS Muy_pocas 
+                THEN dRecomendacion IS Muy_dificil, tExigido IS Muy_poco;
     RULE 13 : IF pAbandono IS Muy_alto AND hInvertible IS Muy_pocas 
-	THEN dRecomendacion IS Facil AND tExigido IS Muy_poco
+                THEN dRecomendacion IS Facil, tExigido IS Muy_poco;
     RULE 14 : IF edad IS Ninos 
-	THEN dRecomendacion IS Facil
+                THEN dRecomendacion IS Facil;
     RULE 15 : IF hInvertible IS Muchas 
-	THEN tExigido IS Mucho
+                THEN tExigido IS Mucho;
     RULE 16 : IF pAbandono IS Muy_bajo AND familiaridad IS Experto 
-	THEN dRecomendacion IS Muy_dificil AND tExigido IS Mucho
+                THEN dRecomendacion IS Muy_dificil, tExigido IS Mucho;
     RULE 17 : IF familiaridad IS Muy_familiarizado 
-	THEN dRecomendacion IS Dificil
+                THEN dRecomendacion IS Dificil;
     RULE 18 : IF hInvertible IS Medias 
-	THEN tExigido IS Medio
+                THEN tExigido IS Medio;
     RULE 19 : IF hInvertible IS Pocas 
-	THEN tExigido IS Poco
+                THEN tExigido IS Poco;
+    RULE 20 : IF pAbandono IS Alto OR  pAbandono IS Muy_alto
+                THEN dRecomendacion IS Medio;
 
 END_RULEBLOCK
 

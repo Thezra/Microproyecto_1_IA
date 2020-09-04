@@ -35,56 +35,68 @@ public class GUI_ELearning extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        label_pAbandono = new javax.swing.JLabel();
+        label_familiaridad = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        label_hInvertibles = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         cajapAbandono = new javax.swing.JTextField();
         cajaHInvertible = new javax.swing.JTextField();
         cajaEdad = new javax.swing.JTextField();
         cajaFamiliaridad = new javax.swing.JTextField();
-        respuesta = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        respuesta = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bienvenido");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(190, 20, 90, 21);
+        jLabel1.setBounds(180, 30, 110, 22);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("(algo super interesante)");
+        jLabel2.setText("Aquí podrás encontrar cursos a tu medida");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(160, 50, 160, 17);
+        jLabel2.setBounds(100, 60, 270, 17);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Porcentaje de abandono del curso");
+        jLabel3.setText("Por favor llene los campos de abajo, los que tienen asterisco son obligatorios");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 110, 240, 20);
+        jLabel3.setBounds(40, 80, 400, 20);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Familiaridad con los temas que se tratan en el curso ");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 140, 350, 20);
+        label_pAbandono.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        label_pAbandono.setForeground(new java.awt.Color(255, 255, 255));
+        label_pAbandono.setText("Porcentaje de abandono del curso*");
+        label_pAbandono.setToolTipText("Porcentaje entre 0 y 100 aproximado en el que el usuario abandona los cursos");
+        jPanel1.add(label_pAbandono);
+        label_pAbandono.setBounds(20, 130, 240, 20);
+
+        label_familiaridad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        label_familiaridad.setForeground(new java.awt.Color(255, 255, 255));
+        label_familiaridad.setText("Familiaridad con los temas que se tratan en el curso* ");
+        label_familiaridad.setToolTipText("En una escala del 0 al 100 que tan familiarizado está con el tema que desea estudiar");
+        jPanel1.add(label_familiaridad);
+        label_familiaridad.setBounds(20, 180, 360, 20);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Edad");
+        jLabel6.setText("Edad*");
+        jLabel6.setToolTipText("En una escala de azul a tomate, ¿cuál es tu animal preferido?");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 220, 40, 20);
+        jLabel6.setBounds(20, 280, 40, 20);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Horas por semana para invertirle al curso");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 180, 280, 20);
+        label_hInvertibles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        label_hInvertibles.setForeground(new java.awt.Color(255, 255, 255));
+        label_hInvertibles.setText("Horas por semana para invertirle al curso*");
+        label_hInvertibles.setToolTipText("Con cuantas horas (entre 0 y 24) a la semana cuenta para avanzar en el curso");
+        jPanel1.add(label_hInvertibles);
+        label_hInvertibles.setBounds(20, 230, 290, 20);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Hacer mágia");
@@ -93,28 +105,38 @@ public class GUI_ELearning extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
-        jButton1.setBounds(180, 280, 120, 30);
+        jButton1.setBounds(180, 320, 120, 30);
 
         cajapAbandono.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajapAbandono);
-        cajapAbandono.setBounds(270, 110, 60, 26);
+        cajapAbandono.setBounds(270, 130, 60, 26);
 
         cajaHInvertible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajaHInvertible);
-        cajaHInvertible.setBounds(320, 180, 60, 26);
+        cajaHInvertible.setBounds(320, 230, 60, 26);
 
         cajaEdad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajaEdad);
-        cajaEdad.setBounds(70, 220, 60, 26);
+        cajaEdad.setBounds(80, 280, 60, 26);
 
         cajaFamiliaridad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(cajaFamiliaridad);
-        cajaFamiliaridad.setBounds(380, 140, 60, 26);
+        cajaFamiliaridad.setBounds(390, 180, 60, 26);
 
         respuesta.setEditable(false);
-        jPanel1.add(respuesta);
-        respuesta.setBounds(20, 330, 430, 240);
+        respuesta.setColumns(20);
+        respuesta.setLineWrap(true);
+        respuesta.setRows(5);
+        jScrollPane1.setViewportView(respuesta);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(50, 370, 370, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,7 +153,8 @@ public class GUI_ELearning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        int edad, familiaridad, hInvertible, pAbandono;
+        double edad, familiaridad, hInvertible, pAbandono;
+        String response;
         
         //Load FIS file
         String fileName = "src/E_Learning/E_Learning.fcl";
@@ -142,26 +165,40 @@ public class GUI_ELearning extends javax.swing.JFrame {
             return;
         }
         // Set vbles
-        edad = Integer.parseInt(cajaEdad.getText());
-        familiaridad = Integer.parseInt(cajaFamiliaridad.getText());
-        hInvertible = Integer.parseInt(cajaHInvertible.getText());
-        pAbandono = Integer.parseInt(cajapAbandono.getText());
-        
-        // Set inputs
-        fis.setVariable("edad", edad);
-        fis.setVariable("familiaridad", familiaridad);
-        fis.setVariable("hInvertible", hInvertible);
-        fis.setVariable("pAbandono", pAbandono);
-        
-        // Evaluate
-        fis.evaluate();
-        
-        // Show
-        JFuzzyChart.get().chart(fis.getFunctionBlock("recomendador"));
-        Double d = fis.getVariable("dificultad").getLatestDefuzzifiedValue();
-        Double e = fis.getVariable("tExigido").getLatestDefuzzifiedValue();
-        respuesta.setText("Para los valores de salida el grado de pertenencia es: " + d + "con" + e);
+        if (cajaEdad.getText().equals("") || cajaFamiliaridad.getText().equals("") || cajaHInvertible.equals("") || cajapAbandono.equals("")) {
+            response = "Por favor llene TODOS los campos con asterisco, como de dijimos arribita.";
+        }else{
+            try{
+                edad = Double.parseDouble(cajaEdad.getText());
+                familiaridad = Double.parseDouble(cajaFamiliaridad.getText());
+                hInvertible = Double.parseDouble(cajaHInvertible.getText());
+                pAbandono = Double.parseDouble(cajapAbandono.getText());
+            
+                // Set inputs
+                fis.setVariable("edad", edad);
+                fis.setVariable("familiaridad", familiaridad);
+                fis.setVariable("hInvertible", hInvertible);
+                fis.setVariable("pAbandono", pAbandono);
+
+                // Evaluate
+                fis.evaluate();
+
+                // Show
+                JFuzzyChart.get().chart(fis.getFunctionBlock("recomendador"));
+                Double d = fis.getVariable("dRecomendacion").getLatestDefuzzifiedValue();
+                Double e = fis.getVariable("tExigido").getLatestDefuzzifiedValue();
+                response = "";
+                
+            }catch (Exception e){
+                response = "Todos los datos deben ser numéricos";
+            }
+        }
+        respuesta.setText(response);   
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -186,10 +223,12 @@ public class GUI_ELearning extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField respuesta;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel label_familiaridad;
+    private javax.swing.JLabel label_hInvertibles;
+    private javax.swing.JLabel label_pAbandono;
+    private javax.swing.JTextArea respuesta;
     // End of variables declaration//GEN-END:variables
 }
