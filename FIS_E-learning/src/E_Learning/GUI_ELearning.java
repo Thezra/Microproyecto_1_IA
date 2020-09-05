@@ -185,9 +185,13 @@ public class GUI_ELearning extends javax.swing.JFrame {
 
                 // Show
                 JFuzzyChart.get().chart(fis.getFunctionBlock("recomendador"));
-                Double d = fis.getVariable("dRecomendacion").getLatestDefuzzifiedValue();
-                Double e = fis.getVariable("tExigido").getLatestDefuzzifiedValue();
-                response = "";
+                Double d = Math.round(fis.getVariable("dRecomendacion").getLatestDefuzzifiedValue()*100.0)/100.0;
+                Double e = Math.round(fis.getVariable("tExigido").getLatestDefuzzifiedValue()*100.0)/100.0;
+                response = "La dificultad del curso recomendada para el usuario es: " + d
+                        + ". Es decir que en una escala del 0 al 20 entre mas cerca se "
+                        + "halle del 20, va a necesitar mas conocimientos previos y ha de esperar un desafío mucho mayor."
+                        + "\n El tiempo que se recomienda que exija el curso elegido "
+                        + "por el usuario es de: " + e + " horas";
                 
             }catch (Exception e){
                 response = "Todos los datos deben ser numéricos";
