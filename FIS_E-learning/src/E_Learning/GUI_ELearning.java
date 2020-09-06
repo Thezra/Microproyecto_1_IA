@@ -169,14 +169,14 @@ public class GUI_ELearning extends javax.swing.JFrame {
             response = "Por favor llene TODOS los campos con asterisco, como de dijimos arribita.";
         }else{
             try{
-                if (cajaEdad.getText().equals("0") || cajaHInvertible.getText().equals("0")){
-                    response = "Por favor sea serio, esos datos no tienen sentido >:|";
+                
+                edad = Double.parseDouble(cajaEdad.getText());
+                familiaridad = Double.parseDouble(cajaFamiliaridad.getText());
+                hInvertible = Double.parseDouble(cajaHInvertible.getText());
+                pAbandono = Double.parseDouble(cajapAbandono.getText());
+                if (edad <= 0 || hInvertible <= 0 || pAbandono < 0){
+                    response = "Por favor sea serio, alguno o algunos de los datos no tienen sentido >:c";
                 }else{    
-                    edad = Double.parseDouble(cajaEdad.getText());
-                    familiaridad = Double.parseDouble(cajaFamiliaridad.getText());
-                    hInvertible = Double.parseDouble(cajaHInvertible.getText());
-                    pAbandono = Double.parseDouble(cajapAbandono.getText());
-
                     // Set inputs
                     fis.setVariable("edad", edad);
                     fis.setVariable("familiaridad", familiaridad);
