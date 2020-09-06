@@ -87,7 +87,7 @@ public class GUI_ELearning extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Edad*");
-        jLabel6.setToolTipText("En una escala de azul a tomate, ¿cuál es tu animal preferido?");
+        jLabel6.setToolTipText("De 0 a 100, en una escala de azul a tomate, ¿cuál es tu animal preferido?");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(20, 280, 40, 20);
 
@@ -131,6 +131,7 @@ public class GUI_ELearning extends javax.swing.JFrame {
 
         respuesta.setEditable(false);
         respuesta.setColumns(20);
+        respuesta.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         respuesta.setLineWrap(true);
         respuesta.setRows(5);
         jScrollPane1.setViewportView(respuesta);
@@ -169,30 +170,33 @@ public class GUI_ELearning extends javax.swing.JFrame {
             response = "Por favor llene TODOS los campos con asterisco, como de dijimos arribita.";
         }else{
             try{
-                edad = Double.parseDouble(cajaEdad.getText());
-                familiaridad = Double.parseDouble(cajaFamiliaridad.getText());
-                hInvertible = Double.parseDouble(cajaHInvertible.getText());
-                pAbandono = Double.parseDouble(cajapAbandono.getText());
-            
-                // Set inputs
-                fis.setVariable("edad", edad);
-                fis.setVariable("familiaridad", familiaridad);
-                fis.setVariable("hInvertible", hInvertible);
-                fis.setVariable("pAbandono", pAbandono);
+                if (cajaEdad.getText().equals("0") || cajaHInvertible.equals("0")){
+                    response = "Por favor sea serio, esos datos no tienen sentido >:|";
+                }else{    
+                    edad = Double.parseDouble(cajaEdad.getText());
+                    familiaridad = Double.parseDouble(cajaFamiliaridad.getText());
+                    hInvertible = Double.parseDouble(cajaHInvertible.getText());
+                    pAbandono = Double.parseDouble(cajapAbandono.getText());
 
-                // Evaluate
-                fis.evaluate();
+                    // Set inputs
+                    fis.setVariable("edad", edad);
+                    fis.setVariable("familiaridad", familiaridad);
+                    fis.setVariable("hInvertible", hInvertible);
+                    fis.setVariable("pAbandono", pAbandono);
 
-                // Show
-                JFuzzyChart.get().chart(fis.getFunctionBlock("recomendador"));
-                Double d = Math.round(fis.getVariable("dRecomendacion").getLatestDefuzzifiedValue()*100.0)/100.0;
-                Double e = Math.round(fis.getVariable("tExigido").getLatestDefuzzifiedValue()*100.0)/100.0;
-                response = "La dificultad del curso recomendada para el usuario es: " + d
-                        + ". Es decir que en una escala del 0 al 20 entre mas cerca se "
-                        + "halle del 20, va a necesitar mas conocimientos previos y ha de esperar un desafío mucho mayor."
-                        + "\n El tiempo que se recomienda que exija el curso elegido "
-                        + "por el usuario es de: " + e + " horas";
-                
+                    // Evaluate
+                    fis.evaluate();
+
+                    // Show
+                    JFuzzyChart.get().chart(fis.getFunctionBlock("recomendador"));
+                    Double d = Math.round(fis.getVariable("dRecomendacion").getLatestDefuzzifiedValue()*100.0)/100.0;
+                    Double e = Math.round(fis.getVariable("tExigido").getLatestDefuzzifiedValue()*100.0)/100.0;
+                    response = "La dificultad del curso recomendada para el usuario es: " + d
+                            + ". Es decir que en una escala del 0 al 20 entre mas cerca se "
+                            + "halle del 20, va a necesitar mas conocimientos previos y ha de esperar un desafío mucho mayor."
+                            + "\n El tiempo que se recomienda que exija el curso elegido "
+                            + "por el usuario es de: " + e + " horas a la semana";
+                }
             }catch (Exception e){
                 response = "Todos los datos deben ser numéricos";
             }
