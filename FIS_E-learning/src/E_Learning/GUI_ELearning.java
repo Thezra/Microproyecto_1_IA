@@ -11,7 +11,6 @@
 package E_Learning;
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
-import net.sourceforge.jFuzzyLogic.rule.Rule;
 
 public class GUI_ELearning extends javax.swing.JFrame {
 
@@ -166,11 +165,11 @@ public class GUI_ELearning extends javax.swing.JFrame {
             return;
         }
         // Set vbles
-        if (cajaEdad.getText().equals("") || cajaFamiliaridad.getText().equals("") || cajaHInvertible.equals("") || cajapAbandono.equals("")) {
+        if (cajaEdad.getText().equals("") || cajaFamiliaridad.getText().equals("") || cajaHInvertible.getText().equals("") || cajapAbandono.getText().equals("")) {
             response = "Por favor llene TODOS los campos con asterisco, como de dijimos arribita.";
         }else{
             try{
-                if (cajaEdad.getText().equals("0") || cajaHInvertible.equals("0")){
+                if (cajaEdad.getText().equals("0") || cajaHInvertible.getText().equals("0")){
                     response = "Por favor sea serio, esos datos no tienen sentido >:|";
                 }else{    
                     edad = Double.parseDouble(cajaEdad.getText());
@@ -197,7 +196,7 @@ public class GUI_ELearning extends javax.swing.JFrame {
                             + "\n El tiempo que se recomienda que exija el curso elegido "
                             + "por el usuario es de: " + e + " horas a la semana";
                 }
-            }catch (Exception e){
+            }catch (NumberFormatException e){
                 response = "Todos los datos deben ser numéricos";
             }
         }
@@ -214,11 +213,8 @@ public class GUI_ELearning extends javax.swing.JFrame {
     public static void main(String args[]) {
                 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new GUI_ELearning().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GUI_ELearning().setVisible(true);
         });
     }
 
