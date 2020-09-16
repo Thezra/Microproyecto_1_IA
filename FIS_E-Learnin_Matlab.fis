@@ -1,5 +1,5 @@
 [System]
-Name='FIS_E-Learning'
+Name='FIS_E-Learnin_Matlab'
 Type='mamdani'
 Version=2.0
 NumInputs=4
@@ -55,9 +55,9 @@ Name='dRecomendacion'
 Range=[0 20]
 NumMFs=4
 MF1='Facil':'trapmf',[-6 -0.667 3.05719921104537 5]
-MF2='Medio':'trapmf',[5 6 7.334 10]
-MF3='Dificil':'trapmf',[10 12.13 15 15]
-MF4='Muy_dificil':'trapmf',[15 20 20 26]
+MF2='Medio':'trapmf',[4 6 7.334 11]
+MF3='Dificil':'trapmf',[9 12.13 15 16]
+MF4='Muy_dificil':'trapmf',[14 20 20 26]
 
 [Output2]
 Name='tExigido'
